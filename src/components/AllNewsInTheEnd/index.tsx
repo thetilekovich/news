@@ -27,7 +27,7 @@ const AllNewsInTheEnd = () => {
                 {
                     news.map((el,idx) => (
                         ((activePageIndex * 10) - 10) < idx && idx <= (activePageIndex * 10) ? 
-                        <div className="text-white">
+                        <div key={el.id} className="text-white">
                             <Image width={385} height={250} alt='image'/> 
                             <NewsTextInfo key={el.id} {...el} size='md'/>
                             <button 

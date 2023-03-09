@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const getNews = createAsyncThunk('news/getNews', async (thunkApi) => {
     try {
-        const res = await axios('http://localhost:3000/api/news')
+        const res = await axios('/api/news')
         const data = await res.data
         return data;
     } catch (error) {
