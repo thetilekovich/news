@@ -33,7 +33,7 @@ const MainNewsSlider = () => {
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             onSwiper={(swiper => console.log(swiper))} 
-            navigation
+            
              {...params}>
                 {news.map(el => (
                     <SwiperSlide key={el.id} >

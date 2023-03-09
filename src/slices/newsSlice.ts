@@ -25,9 +25,7 @@ const initialState: INewState = {
 const newsSlice = createSlice({
     name: 'news',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getNews.fulfilled, (state, action) => {
             state.news.push(...action.payload)

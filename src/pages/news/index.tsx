@@ -8,6 +8,7 @@ import PopNews from "@/components/PopNews";
 import FeatureNews from '../../components/Sliders/FeatureNews.jsx';
 import TrendingNews from "@/components/Sliders/TrendingNews";
 import MainNewsSlider from "@/components/Sliders/MainNewsSlider";
+import LastSection from '../../components/LastSection/index';
 
 const News = () => {
     const newsRef = useRef(false)
@@ -31,6 +32,7 @@ const News = () => {
             <FeatureNews/>
             <TrendingNews/>
             <MainNewsSlider/>
+            <LastSection/>
         </div>
     )
 }

@@ -1,6 +1,13 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-const SectionTitle = ({title, size = 25, color="white"}: {title: string, size?: number, color?: string}) => {
+interface ISectionTitleProps {
+  title: string,
+  size?: number,
+  color?: string
+}
+
+
+const SectionTitle: FC<ISectionTitleProps> = ({title, size = 25, color="white"}) => {
   return (
     <h1 className="font-bold" style={{
         fontSize: `${size}px`,

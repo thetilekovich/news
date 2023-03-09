@@ -33,7 +33,6 @@ const TrendingNews = () => {
                         <SectionHeader title='Trending News' namePrev='t-btn-prev' nameNext='t-btn-next' />
                     </div>
                     <Swiper 
-                    navigation
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     onSwiper={swiper => console.log(swiper)}
                      {...params}>

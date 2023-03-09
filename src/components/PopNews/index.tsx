@@ -29,7 +29,7 @@ const PopNews = () => {
             <div className="flex text-white">
                 <div>
                     <BigNews title={pop.title} body={popBody} category={pop.category} date={pop.date} />
-                    <UnderPopSlider />
+                    {/* <UnderPopSlider /> */}
                 </div>
                 <div className="w-4/12 p-4">
                     <div className='flex justify-between'>

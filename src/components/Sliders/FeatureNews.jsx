@@ -36,7 +36,6 @@ const FeatureNews = () => {
                 <Swiper
                     getSwiper={(e) => console.log(e)}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    navigation
                     onSwiper={(swiper => console.log(swiper))} 
                     {...params}>
                     {news.map(el => (
