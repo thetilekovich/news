@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Container from '../Container/index';
-import { useAppSelector } from '@/slices/hooks';
-import UnderPopSlider from '../Sliders/UnderPopSlider';
+import { useAppSelector } from '../../slices/hooks';
 import NewsMapping from '../NewsMapping'
 import { INew } from '../../types/news'
 import NewsTextInfo from '../NewsTextInfo';

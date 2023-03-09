@@ -1,13 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Container from '../Container';
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/autoplay';
-import { useAppSelector } from '@/slices/hooks';
+import { useAppSelector } from '../../slices/hooks';
 import Image from '../Image';
-import { useState } from 'react';
 import ToRight from '../Arrows/ToRight'
 import ToLeft from '../Arrows/ToLeft'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -50,7 +44,7 @@ const UnderPopSlider = () => {
                 <div>
                     {news.map(el => (
                         <SwiperSlide key={el.id} >
-                            <Image width={100} height={60} />
+                            <Image alt='d' width={100} height={60} />
                         </SwiperSlide>))}
                 </div>
             </Swiper>

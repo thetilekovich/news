@@ -5,7 +5,7 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
-import { useAppSelector } from '@/slices/hooks';
+import { useAppSelector } from '../../slices/hooks';
 import Image from '../Image';
 import SwiperCore, {
     Autoplay
@@ -39,7 +39,7 @@ const FirstSlider = () => {
                         news.map(el => (
                             <SwiperSlide key={el.id} >
                                 <div className='flex items-between'>
-                                    <Image width={100} height={80} />
+                                    <Image alt="d" width={100} height={80} />
                                     <div className="mx-5">
                                         <h1 className='text-sm font-extrabold text-white'>{el.title}</h1>
                                         <p className="text-xs break-all text-gray-300">{el?.body?.slice(0,60)}</p>

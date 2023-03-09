@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppSelector } from '@/slices/hooks'
+import { useAppSelector } from '../../slices/hooks'
 import NewsMapping from '../NewsMapping'
 import SectionTitle from '../SectionTitle'
 import Twitter from '../../../public/SocialMedaIcons/Twitter.svg'

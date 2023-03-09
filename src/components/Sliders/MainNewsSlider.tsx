@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SectionHeader from '../SectionHeader'
-import { useAppSelector } from '@/slices/hooks'
-import SwiperClass from 'swiper/types/swiper-class';
+import { useAppSelector } from '../../slices/hooks'
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { BigNews } from '../BigNews';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -9,7 +8,6 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
-import { useSwiper } from 'swiper/react';
 
 
 

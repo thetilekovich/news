@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from '../Container';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -6,8 +6,7 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
-import { useSwiper } from 'swiper/react';
-import { useAppSelector } from '@/slices/hooks';
+import { useAppSelector } from '../../slices/hooks';
 import NewsTextInfo from '../NewsTextInfo/index';
 import SectionHeader from '../SectionHeader';
 

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import newsSlice from "@/slices/newsSlice";
-import newsPageSlice from '@/slices/newsPageSlice'
+import newsSlice from "../slices/newsSlice";
+import newsPageSlice from '../slices/newsPageSlice'
 
 export function makeStore () {
     return configureStore({

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import newsData from '@/data/news'
+import newsData from '../../data/news'
 import { INew } from '../../types/news';
 
 

@@ -1,9 +1,9 @@
 import SectionTitle from "../SectionTitle"
-import {useAppSelector, useAppDispatch} from '../../slices/hooks'
+import {useAppSelector} from '../../slices/hooks'
 import Image from "../Image"
 import NewsTextInfo from "../NewsTextInfo"
 import {useState} from 'react'
-import { Link, Element, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Element } from 'react-scroll'
 
 const AllNewsInTheEnd = () => {
     const {news} = useAppSelector(s => s.news)
@@ -14,8 +14,6 @@ const AllNewsInTheEnd = () => {
         setPageIndex(idx + 1)
 
     }
-
-
 
 
     return (
