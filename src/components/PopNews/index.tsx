@@ -36,6 +36,7 @@ const PopNews = () => {
                         {
                             ['Popular', 'Sport', 'Tech'].map(el => (
                                 <button
+                                    key={el}
                                     onClick={(() => setActive(el.toUpperCase()))}
                                     className={`px-4 py-1 mx-2 text-xl duration-1000 ease-out font-bold black-box-shadow uppercase ${active == el.toUpperCase() ? 'bg-blue-600 text-white' : 'bg-white text-black'}`}>
                                     {el}</button>

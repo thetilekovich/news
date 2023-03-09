@@ -82,10 +82,10 @@ const UnderTrendingNews = () => {
             <div className='grid grid-cols-2 grid-rows-3 gap-5'>
                 {news.map((el, idx) => (
                     idx < 6 ?
-                        <div style={{
+                        <div key={el.id} style={{
                             width: '350px',
                         }}>
-                            <NewsMapping el={el} size="md" key={el.id} />
+                            <NewsMapping el={el} size="md"/>
                         </div>
                         : ''
                 ))}
@@ -95,7 +95,9 @@ const UnderTrendingNews = () => {
                 <div className="grid grid-cols-3 gap-2 mt-5">
                     {
                         socialMedia.map(el => (
-                            <a href={el.url} key={el.id} className="w-32 h-14 py-2 px-4 flex items-center justify-center" style={{background: el.bgColor}}>
+                            <a
+                            key={el.id}
+                            href={el.url} className="w-32 h-14 py-2 px-4 flex items-center justify-center" style={{background: el.bgColor}}>
                                 <Image src={el.icon} width={25} height={25} alt={el.icon}/>
                                 <div className={`${el.name === 'Twitter' || el.name === 'Telegram' ? "text-black" : 'text-white'} font-bold ml-4`}>
                                     <p>{el.subscribes}</p>

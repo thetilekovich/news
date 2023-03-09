@@ -73,7 +73,7 @@ const LastSection = () => {
                     <div className="mb-12">
                     {
                         newsData.map(el => (
-                            <Link href={el.url} className=''>
+                            <Link key={el.id} href={el.url} className=''>
                                 <div className='bg-white mb-3 h-16 flex rounded-md duration-700 hover:bg-black hover:text-white items-center justify-between px-3'>
                                     <h1 className=" italic text-2xl font-md ">{el.title}</h1>
                                     <ArrowRight color='green' />
