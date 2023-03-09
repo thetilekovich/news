@@ -10,11 +10,16 @@ import Image from '../Image';
 import { useState } from 'react';
 import ToRight from '../Arrows/ToRight'
 import ToLeft from '../Arrows/ToLeft'
-import SwiperClass from 'swiper/types/swiper-class';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/autoplay';
+import { useSwiper } from 'swiper/react';
 
-const Slider1 = () => {
+const UnderPopSlider = () => {
     const { news } = useAppSelector(s => s.news)
-    const { swiper, setSwiper } = useState<SwiperClass>()
+    const swiper = useSwiper()
 
     const goNext = () => {
         if (swiper !== null) {
@@ -28,25 +33,30 @@ const Slider1 = () => {
     }
 
     const params = {
-        spaceBetween: 10,
+        spaceBetween: 5,
         slidesPerView: 6,
         loop: true,
     }
 
     return (
-        <Container>
-            <div className='flex items-center'>
-                <button className=" mb-2 flex items-center cursor-pointer" onClick={goPrev}> <ToLeft size={35}/></button>
-                <Swiper {...params}>
+
+        <div className='flex items-center my-5 px-5'>
+            <button className=" mb-2 flex items-center cursor-pointer" onClick={goPrev}> <ToLeft size={35} /></button>
+            <Swiper
+                onSwiper={swiper => console.log(swiper)}
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                navigation
+                {...params}>
+                <div>
                     {news.map(el => (
-                        <SwiperSlide onSwiper={setSwiper} key={el.id} >
-                            <Image width={80} height={60} />
+                        <SwiperSlide key={el.id} >
+                            <Image width={100} height={60} />
                         </SwiperSlide>))}
-                </Swiper>
-                <button className="mb-2 cursor-pointer" onClick={goNext}><ToRight size={35}/></button>
-            </div>
-        </Container>
-    );2
+                </div>
+            </Swiper>
+            <button className="mb-2 cursor-pointer" onClick={goNext}><ToRight size={35} /></button>
+        </div>
+    );
 }
 
-export default Slider1
+export default UnderPopSlider

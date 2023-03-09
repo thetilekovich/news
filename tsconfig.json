@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/store/auth/action.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/store/auth/action.js", "src/components/Sliders/FeatureNews.jsx"],
   "exclude": ["node_modules"]
 }

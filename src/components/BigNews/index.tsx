@@ -14,13 +14,14 @@ const placeholder = 'https://image-component.nextjs.gallery/_next/image?url=%2Fm
 
 export const BigNews: React.FC<IBigNews> = ({title, date, category, body, img = placeholder, size='biggest'}) => {
     return (
-        <div className={`${size === 'biggest' ? "w-8/12" : 'w-6/12'} p-4`}>
-        <div className={`my-box-shodow flex flex-col justify-between ${size === 'biggest' ? 'px-16 pb-12 h-96' : 'px-12 pb-8 h-64'}`} style={{
+        <div className={` p-4`}>
+        <div className={`my-box-shodow  flex flex-col justify-between ${size === 'biggest' ? 'px-16 pb-12 h-96' : 'px-10 pb-8 h-80'}`} style={{
             backgroundImage: `url(${img})`,
-            backgroundSize: `100% 100%`
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% 100%'
         }}>
             <div className="rounded-full w-10 h-10 bg-black self-end mt-3"></div>
-            <NewsTextInfo color="white" size={size === 'biggest' ? 'xl' : 'md'} title={title} date={date} category={category} body={body}/>
+            <NewsTextInfo color="text-white" size={size === 'biggest' ? 'xl' : 'md'} title={title} date={date} category={category} body={body}/>
         </div>
     </div>
     )

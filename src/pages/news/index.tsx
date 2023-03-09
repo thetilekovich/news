@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../slices/hooks';
 import FirstSlider from "@/components/Sliders/FirstSlider";
 import PopNews from "@/components/PopNews";
-import FeatureNews from '../../components/Sliders/FeatureNews';
+import FeatureNews from '../../components/Sliders/FeatureNews.jsx';
 import TrendingNews from "@/components/Sliders/TrendingNews";
 import MainNewsSlider from "@/components/Sliders/MainNewsSlider";
 

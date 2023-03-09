@@ -6,18 +6,29 @@ import ToLeft from '../Arrows/ToLeft'
 
 interface SectionHeaderProps {
     title: string,
-    goNext: () => void,
-    goPrev: () => void
+    nameNext: string
+    namePrev: string,
 }
 
-const SectionHeader: FC<SectionHeaderProps> = ({ title, goNext, goPrev }) => {
+const SectionHeader: FC<SectionHeaderProps> = ({ title, nameNext, namePrev }) => {
     return (
         <>
-            <SectionTitle title={title} color="white" />
-            <div className="flex items-center">
-                <button className="slider-btn mx-2 flex items-center cursor-pointer" onClick={goPrev}> <ToLeft size={25} /></button>
-                <button className="slider-btn mx-2 cursor-pointer" onClick={goNext}><ToRight size={25} /></button>
-            </div>
+            {
+                title == '' ?
+                    <div className="flex justify-between">
+                        <button className={`${namePrev} slider-btn mx-2 flex items-center cursor-pointer`}> <ToLeft size={25} /></button>
+                        <button className={`${nameNext} slider-btn mx-2 cursor-pointer`}><ToRight size={25} /></button>
+                    </div>
+                    :
+                    <>
+                        <SectionTitle title={title} color="white" />
+                        <div className="flex items-center">
+                            <button className={`${namePrev}  slider-btn mx-2 flex items-center cursor-pointer`} > <ToLeft size={25} /></button>
+                            <button className={`${nameNext}  slider-btn mx-2 cursor-pointer`}><ToRight size={25} /></button>
+                        </div>
+                    </>
+            }
+
         </>
     )
 }

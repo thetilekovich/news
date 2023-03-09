@@ -5,7 +5,7 @@ import UnderPopSlider from '../Sliders/UnderPopSlider';
 import NewsMapping from '../NewsMapping'
 import { INew } from '../../types/news'
 import NewsTextInfo from '../NewsTextInfo';
-import {BigNews} from '../BigNews'
+import { BigNews } from '../BigNews'
 
 
 
@@ -27,15 +27,17 @@ const PopNews = () => {
     return (
         <Container>
             <div className="flex text-white">
-
-                <BigNews title={pop.title} body={popBody} category={pop.category} date={pop.date}/>
+                <div>
+                    <BigNews title={pop.title} body={popBody} category={pop.category} date={pop.date} />
+                    <UnderPopSlider />
+                </div>
                 <div className="w-4/12 p-4">
                     <div className='flex justify-between'>
                         {
                             ['Popular', 'Sport', 'Tech'].map(el => (
                                 <button
                                     onClick={(() => setActive(el.toUpperCase()))}
-                                    className={`px-4 py-1 text-xl duration-1000 ease-out font-bold black-box-shadow uppercase ${active == el.toUpperCase() ? 'bg-blue-600 text-white' : 'bg-white text-black'}`}>
+                                    className={`px-4 py-1 mx-2 text-xl duration-1000 ease-out font-bold black-box-shadow uppercase ${active == el.toUpperCase() ? 'bg-blue-600 text-white' : 'bg-white text-black'}`}>
                                     {el}</button>
                             ))
                         }
@@ -43,7 +45,7 @@ const PopNews = () => {
                     <div>
                         <div>
                             {
-                                news.filter(el => el.category.toUpperCase() == active).map((el: INew, idx: number) =>  (
+                                news.filter(el => el.category.toUpperCase() == active).map((el: INew, idx: number) => (
                                     idx < 5 ?
                                         <NewsMapping key={el.id} el={el} />
                                         : '')
@@ -52,6 +54,7 @@ const PopNews = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </Container>
     )

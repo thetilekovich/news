@@ -21,7 +21,8 @@ const NewsMapping = ({el, size = 'md'} : {el: INew, size?: string}) => {
     onMouseDown={handleHoverScale}
     // onMouseLeft={handleHoverScaleM}
     >
-        <Image ref={imageRef} width={'100px'} height={'80px'}/>
+        <Image 
+         width={200} height={80}/>
         <div className="ml-6">
             <h3 className=" text-xs"><span className="uppercase font-md text-blue-600">{el.category}</span> / {el.date}</h3>
             <h1 className={`text-${size} text-bold`}>{el.title}</h1>
