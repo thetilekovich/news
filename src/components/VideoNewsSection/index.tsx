@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from '../Image'
 import 'swiper/scss';
 import 'swiper/scss/navigation';
-import "swiper/css/effect-fade";
 import 'swiper/scss/pagination';
 import { Navigation, Scrollbar, A11y,EffectFade } from 'swiper';
 import { useAppSelector } from '../../slices/hooks';
@@ -18,8 +17,9 @@ const params = {
     slidesPerGroup: 5,
     freeMode: true,
     loop: true,
-    direction: "vertical",
-    autoHeight: 'true',
+    direction: "vertical" as "vertical",
+    flexDirection: 'row' as 'row',
+    autoHeight: true,
     pagination: { clickable: true },
     navigation: {
         nextEl: '.popular-post-btn-next',
@@ -32,7 +32,6 @@ const paramsTwo = {
     spaceBetween: 0,
     slidesPerView: 1,
     loop: true,
-    effect: "fade",
     pagination: { clickable: true },
     navigation: {
         nextEl: '.popular-post-btn-next',
@@ -75,7 +74,7 @@ const VideoNewsSection = () => {
                             <SectionHeader title="Popular Posts" nameNext="popular-post-btn-next" namePrev="popular-post-btn-prev" />
                             <div className="mt-5">
                                 <Swiper
-                                    modules={[Navigation, Scrollbar, A11y, EffectFade]}
+                                    modules={[Navigation, Scrollbar, A11y]}
                                     {...params}
                                 >
                                     {
