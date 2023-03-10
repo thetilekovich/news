@@ -1,15 +1,14 @@
-import React from 'react'
-import Image from '../Image';
-import ToLeft from '../Arrows/ToLeft';
-import ToRight from '../Arrows/ToRight';
-import Container from '../Container';
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Container from '../Container';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { useAppSelector } from '../../slices/hooks';
+import Image from '../Image';
+import SectionHeader from '../SectionHeader'
 
 // import SwiperCore, {
 //     Autoplay
@@ -18,12 +17,12 @@ import { useAppSelector } from '../../slices/hooks';
 const params = {
     // module: [Autoplay],
     spaceBetween: 10,
-    slidesPerView: 3,
+    slidesPerView: 4,
     loop: true,
     pagination: { clickable: true },
     navigation: {
-        nextEl: '.first-btn-next',
-        prevEl: '.first-btn-prev',
+        nextEl: '.undersocial-btn-next',
+        prevEl: '.undersocial-btn-prev',
     }
     // autoplay: {
     //     delay: 2500,
@@ -34,17 +33,16 @@ const params = {
 
 
 
-const FirstSlider = () => {
+const UnderSocialMedia = () => {
     const { news } = useAppSelector(s => s.news)
     // SwiperCore.use([Autoplay]);
 
     return (
-        <Container>
-            <div className='mb-8 flex items-center h-20'>
-                <button
-                    className='first-btn-prev h-full w-80'>
-                    <ToLeft size='py-7' />
-                </button>
+        // <Container>
+            <div className='items-center mb-24'>
+                <Container>
+                    <SectionHeader namePrev="undersocial-btn-prev" nameNext="undersocial-btn-next"/>    
+                </Container> 
                 <Swiper
                     modules={[Navigation, Scrollbar, A11y]}
                     {...params}
@@ -52,8 +50,8 @@ const FirstSlider = () => {
                     {
                         news.map(el => (
                             <SwiperSlide key={el.id} >
-                                <div className='flex'>
-                                    <Image alt="d" width={100} height={80} />
+                                <div className='flex mt-5'>
+                                    <Image alt="d" width={80} height={60} />
                                     <div className="mx-3">
                                         <h1 className='text-md font-medium text-black'>{el.title.slice(0,35)}...</h1>
                                         <p className="text-sm forn-light break-all  text-gray-700">{el?.body?.slice(0, 50)}...</p>
@@ -63,13 +61,9 @@ const FirstSlider = () => {
                         ))
                     }
                 </Swiper>
-                <button
-                    className='first-btn-next h-full w-80'>
-                    <ToRight size='py-7' />
-                </button>
             </div>
-        </Container >
+        // </Container >
     );
 }
 
-export default FirstSlider
+export default UnderSocialMedia

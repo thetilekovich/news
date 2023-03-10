@@ -5,7 +5,7 @@ import NewsTextInfo from "../NewsTextInfo"
 import {useState} from 'react'
 import { Link, Element } from 'react-scroll'
 
-const AllNewsInTheEnd = () => {
+const EntertaimentNews = () => {
     const {news} = useAppSelector(s => s.news)
     const [activePageIndex, setPageIndex]  = useState(1)
 
@@ -27,9 +27,11 @@ const AllNewsInTheEnd = () => {
                         ((activePageIndex * 10) - 10) < idx && idx <= (activePageIndex * 10) ? 
                         <div key={el.id} className="text-white">
                             <Image width={385} height={250} alt='image'/> 
-                            <NewsTextInfo key={el.id} {...el} size='md'/>
+                            <div className="mt-4">
+                            <NewsTextInfo color="text-black" key={el.id} {...el} catBlue size='middle'/>
+                            </div>
                             <button 
-                            className="py-2 px-4 duration-100  rounded-sm easy-in-out font-bold my-6 slider-btn hover:bg-blue-500 hover:border-none hover:text-black">
+                            className="py-2 px-4 duration-500 text-black rounded-sm easy-in-out font-bold my-6 slider-btn hover:bg-blue-500 hover:border-none hover:text-white">
                                 READ MORE
                                 </button>
                         </div>
@@ -58,4 +60,4 @@ const AllNewsInTheEnd = () => {
     )
 }
 
-export default AllNewsInTheEnd
+export default EntertaimentNews

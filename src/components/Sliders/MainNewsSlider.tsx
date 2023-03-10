@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from '../Container';
 import SectionHeader from '../SectionHeader'
 import { useAppSelector } from '../../slices/hooks'
 import { SwiperSlide, Swiper } from 'swiper/react';
@@ -26,17 +27,18 @@ const MainNewsSlider = () => {
 
 
     return (
-        <div className="mb-24 px-5">
+        <div className="px-5">
+            <Container>
             <SectionHeader title='' nameNext='m-btn-next' namePrev="m-btn-prev" />
+            </Container>
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             onSwiper={(swiper => console.log(swiper))} 
-            
              {...params}>
                 {news.map(el => (
                     <SwiperSlide key={el.id} >
                         <div>
-                            <BigNews size="smaller" key={el.id} title={el.title} body={el.body} date={el.date} category={el.category} />
+                            <BigNews size="middle" key={el.id} title={el.title} body={el.body} date={el.date} category={el.category} />
                         </div>
                     </SwiperSlide>))}
             </Swiper>

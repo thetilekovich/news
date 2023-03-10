@@ -7,9 +7,9 @@ interface ISectionTitleProps {
 }
 
 
-const SectionTitle: FC<ISectionTitleProps> = ({title, size = 25, color="white"}) => {
+const SectionTitle: FC<ISectionTitleProps> = ({title, size = 25, color="black"}) => {
   return (
-    <h1 className="font-bold" style={{
+      <h1 className="font-medium" style={{
         fontSize: `${size}px`,
         color: color,
     }}>

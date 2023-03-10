@@ -1,8 +1,10 @@
-import AllNewsInTheEnd from '../AllNewsInTheEnd'
 import Container from '../Container'
 import Link from 'next/link'
 import {useState, ChangeEvent} from 'react'
 import ArrowRight from '../../../public/ArrowRight';
+import EntertaimentNews from '../EntertaimentNews'
+
+
 interface IDataNews {
     id: number,
     title: string,
@@ -68,7 +70,7 @@ const LastSection = () => {
         <Container>
 
             <div className="flex mb-16 justify-between">
-                <AllNewsInTheEnd />
+                <EntertaimentNews />
                 <div className='px-10 py-24 w-4/12'>
                     <div className="mb-12">
                     {

@@ -10,6 +10,10 @@ import Telegram from '../../../public/SocialMedaIcons/Telegram.svg'
 import vk from '../../../public/SocialMedaIcons/Vk.svg'
 import Image from 'next/image'
 
+
+// Give same p-btn-next и p-btn-prev className for making singhronic sliding.
+
+
 interface ISocialMedia {
     id: number,
     icon: any,
@@ -78,7 +82,7 @@ const socialMedia: ISocialMedia[] = [
 const UnderTrendingNews = () => {
     const { news } = useAppSelector(s => s.news)
     return (
-        <div className='flex justify-between mb-24'>
+        <div className='flex justify-between mb-8'>
             <div className='grid grid-cols-2 grid-rows-3 gap-5'>
                 {news.map((el, idx) => (
                     idx < 6 ?

@@ -29,13 +29,11 @@ const FeatureNews = () => {
     return (
         <Container>
             <div className='mb-24'>
-                <div className="flex mb-8 justify-between items-center">
+                <div className="mb-8 ">
                     <SectionHeader title='Feature News' nameNext='f-btn-next' namePrev='f-btn-prev'  />
                 </div>
                 <Swiper
-                    getSwiper={(e) => console.log(e)}
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    onSwiper={(swiper => console.log(swiper))} 
                     {...params}>
                     {news.map(el => (
                         <SwiperSlide key={el.id} >
@@ -44,7 +42,7 @@ const FeatureNews = () => {
                                 height: '280px',
                                 width: '250px'
                             }}>
-                                <NewsTextInfo color="text-white" size="sm" title={el.title} category={el.category} date={el.date} />
+                                <NewsTextInfo size="smaller" color="black" title={el.title} category={el.category} date={el.date} />
                             </div>
                         </SwiperSlide>))}
                 </Swiper>

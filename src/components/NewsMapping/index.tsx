@@ -8,20 +8,18 @@ const NewsMapping = ({el, size = 'md'} : {el: INew, size?: string}) => {
 
   const handleHoverScale = () => {
     if(imageRef.current !== null){
-    // imageRef.current.style.transform = 'scale(1.3)'
     }
   }
   return (
-    <Link href=''className="w-full h-auto text-white flex my-3 border-news-mapped items-center content-center"
+    <Link href=''className="w-full h-auto text-black flex my-3 border-news-mapped items-center content-center"
     onMouseDown={handleHoverScale}
-    // onMouseLeft={handleHoverScaleM}
     >
         <Image 
-        alt='i'
-         width={200} height={80}/>
-        <div className="ml-6">
-            <h3 className=" text-xs"><span className="uppercase font-md text-blue-600">{el.category}</span> / {el.date}</h3>
-            <h1 className={`text-${size} text-bold`}>{el.title}</h1>
+          alt='i'
+         width={110} height={70}/>
+        <div className="ml-6 flex flex-col justify-between">
+            <h3 className=" text-xs text-gray-500 mb-2"><span className="uppercase font-md text-blue-500">{el.category}</span> / &nbsp; &nbsp; {el.date}</h3>
+            <h1 className={`text-md font-bold`}>{el.title.slice(0,50)}...</h1>
         </div>
     </Link>
   )

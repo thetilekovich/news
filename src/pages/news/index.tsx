@@ -9,6 +9,8 @@ import FeatureNews from '../../components/Sliders/FeatureNews.jsx';
 import TrendingNews from "@/components/Sliders/TrendingNews";
 import MainNewsSlider from "@/components/Sliders/MainNewsSlider";
 import LastSection from '../../components/LastSection/index';
+import UnderSocialMedia from '../../components/Sliders/UnderSocialMedia'
+import VideoNews from "@/components/VideoNews/indext";
 
 const News = () => {
     const newsRef = useRef(false)
@@ -31,7 +33,8 @@ const News = () => {
             <PopNews/>
             <FeatureNews/>
             <TrendingNews/>
-            <MainNewsSlider/>
+            <UnderSocialMedia/>
+            <VideoNews/>
             <LastSection/>
         </div>
     )

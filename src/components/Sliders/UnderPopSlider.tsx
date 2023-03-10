@@ -27,28 +27,37 @@ const UnderPopSlider = () => {
     }
 
     const params = {
-        spaceBetween: 5,
-        slidesPerView: 6,
+        spaceBetween: 2,
+        slidesPerView: 6.4,
         loop: true,
+        pagination: { clickable: true },
+        navigation: {
+            nextEl: '.pop-btn-next',
+            prevEl: '.pop-btn-prev',
+        }
     }
 
     return (
 
-        <div className='flex items-center my-5 px-5'>
-            <button className=" mb-2 flex items-center cursor-pointer" onClick={goPrev}> <ToLeft size={35} /></button>
-            <Swiper
-                onSwiper={swiper => console.log(swiper)}
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                navigation
+        <div className='mb-8 flex items-center h-20 px-3'>
+            <button
+                className='pop-btn-prev duration-500 h-16 w-40'>
+                <ToLeft size='py-5' />
+            </button>           
+             <Swiper
+                modules={[Navigation, Scrollbar, A11y]}
                 {...params}>
                 <div>
                     {news.map(el => (
                         <SwiperSlide key={el.id} >
-                            <Image alt='d' width={100} height={60} />
+                            <Image alt='d' width={100} height={64} />
                         </SwiperSlide>))}
                 </div>
             </Swiper>
-            <button className="mb-2 cursor-pointer" onClick={goNext}><ToRight size={35} /></button>
+            <button
+                className='pop-btn-next duration-500 h-full w-40'>
+                <ToRight size='py-5' />
+            </button>
         </div>
     );
 }

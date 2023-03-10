@@ -29,7 +29,7 @@ const TrendingNews = () => {
     return (
         <Container>
                 <div className="mb-24">
-                    <div className="flex mb-8 justify-between items-center">
+                    <div className="mb-8">
                         <SectionHeader title='Trending News' namePrev='t-btn-prev' nameNext='t-btn-next' />
                     </div>
                     <Swiper 
@@ -41,8 +41,8 @@ const TrendingNews = () => {
                                 <SwiperSlide key={el.id} >
                                     <div className="flex flex-col items-center">
                                         <Image alt='e' width={340} height={280} />
-                                        <div className="ml-5 self-start">
-                                            <NewsTextInfo catBlue color="text-white" size="md" title={el.title} body={el.body.slice(0, 160)} category={el.category} date={el.date} />
+                                        <div className="ml-5 mt-3 self-start">
+                                            <NewsTextInfo catBlue color="text-black" size="middle" title={el.title} body={el.body.slice(0, 160)} category={el.category} date={el.date} />
                                         </div>
                                     </div>
                                 </SwiperSlide>))}
