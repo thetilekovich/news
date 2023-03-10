@@ -39,7 +39,7 @@ const EntertaimentNews = () => {
                     ))
                 }
             </div>
-            <div className="flex px-10 justify-center py-5 text-white w-full overflow-hidden">
+            <div className="flex px-10 justify-center py-5 text-black w-full overflow-hidden">
                 {
                     news.map((el,idx) => (
                         news.length / 10 > idx ?
@@ -49,7 +49,7 @@ const EntertaimentNews = () => {
                         smooth={true}
                         duration={2000}
                         onClick={() => goAnotherPage(idx)}
-                        className={` cursor-pointer ${idx + 1 === activePageIndex ? 'font-extrabold text-xl text-blue-300' : ''} mx-3`}>
+                        className={` cursor-pointer ${idx + 1 === activePageIndex ? 'font-extrabold text-xl text-blue-600' : ''} mx-3`}>
                             {idx + 1}</Link>
                             : ''
                     ))
