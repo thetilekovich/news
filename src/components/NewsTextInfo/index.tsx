@@ -25,7 +25,7 @@ const NewsTextInfo: React.FC<NewsTextInfoProps> = ({ category, title, descriptio
             <h1 className={`${biggest ? "text-3xl font-extrabold" : middle ? "text-2xl font-bold" : "text-md font-bold"} my-2 hover:text-blue-400 cursor-pointer`}>{title?.length > 50 ? `${title.slice(0,50)}...` : title}</h1>
             {
                 description ?
-                    <p className="font-light space-x-1 cursor-pointer">{description.length > 80 ? `${description.slice(0,100)}....` : description} </p>
+                    <p className={`${biggest ? 'text-md font-bold' : 'font-light'} space-x-1 cursor-pointer`}>{description.length > 80 ? `${description.slice(0,100)}....` : description} </p>
                     :
                     ''
             }

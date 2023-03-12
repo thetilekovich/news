@@ -30,7 +30,7 @@ export const BigNews: React.FC<IBigNews> = ({ title, publishedAt, category, desc
                 <div className=" mr-3 self-end mt-3">
                     <Image src={playIcon} width='40' height='40' alt='play'/>
                 </div>
-                <div className={size === 'biggest' ? 'px-10 pb-12' : 'px-10 pb-8'}>
+                <div className={`${size === 'biggest' ? 'px-10 pb-12' : 'px-10 pb-8'} bg-gray-400 bg-opacity-40 `}>
                     <NewsTextInfo size={size} title={title} publishedAt={publishedAt} category={category} description={description} />
                 </div>
             </div>
