@@ -7,7 +7,6 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { useAppSelector } from '../../slices/hooks';
-import Image from '../Image';
 import SectionHeader from '../SectionHeader'
 
 // import SwiperCore, {
@@ -39,7 +38,7 @@ const UnderSocialMedia = () => {
 
     return (
         <Container>
-            <div className='items-center mb-24'>
+            <div className='items-center mb-10'>
                 <SectionHeader namePrev="undersocial-btn-prev" nameNext="undersocial-btn-next" />
                 <Swiper
                     modules={[Navigation, Scrollbar, A11y]}
@@ -49,16 +48,18 @@ const UnderSocialMedia = () => {
                         news.map((el,idx) => (
                             idx > 50 && idx <= 60 ?
                             <SwiperSlide key={el.id} >
-                                <div className='flex mt-5'>
+                                <div className='flex mt-5 items-center'>
                                     <img alt="" src={el.urlToImage} style={{
-                                        width:'120px',
+                                        width:'110px',
                                         maxHeight: '80px',
-                                        minWidth: '110px',
-                                        minHeight: '70px',
+                                        height: '80px',
+                                        maxWidth: '120px',
+                                        minWidth: '100px',
+                                        minHeight: '75px',
                                         objectFit: 'scale-down'
                                     }}/>
                                     <div className="mx-3">
-                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0, 35)}...</h1>
+                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0, 40)}...</h1>
                                     </div>
                                 </div>
                             </SwiperSlide> : ""

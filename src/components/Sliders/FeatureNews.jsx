@@ -38,16 +38,16 @@ const FeatureNews = () => {
                     {news.map((el,idx) => (
                         idx > 30 ? 
                         <SwiperSlide key={el.id} >
-                            <div className='mx-2 flex items-end py-5 0' style={{
+                            <div className='mx-2 flex items-end py-5' style={{
                                 backgroundImage: `url('${el.urlToImage}')`,
-                                height: '280px',
-                                width: '250px',
+                                height: '300px',
+                                width: '280px',
                                 backgroundRepeat: 'no-repeat',
                                 backgroundSize: 'auto 100%',
                                 backgroundPosition: 'center',
                                 backgroundOrigin: 'content-box'
                             }}>
-                                <NewsTextInfo size="smaller" bgColor="bg-gray-300 bg-opacity-50" color="text-black" title={el.title} category={el.category} publishedAt={el.publishedAt} />
+                                <NewsTextInfo size="smaller" bgColor="bg-gray-700 bg-opacity-70" color="text-white" title={el.title} category={el.category} publishedAt={el.publishedAt} />
                             </div>
                         </SwiperSlide> : ""))}
                 </Swiper>

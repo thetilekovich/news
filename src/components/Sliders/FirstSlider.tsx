@@ -54,7 +54,10 @@ const FirstSlider = () => {
                             news.map(el => (
                                 <SwiperSlide key={el.title} >
                                     <div className='flex'>
-                                        <img src={el.urlToImage} width={140}  height={70} alt=''/>
+                                        <img src={el.urlToImage} style={{
+                                            width: '140px',
+                                            height: '80px',
+                                        }} alt=''/>
                                         <div className="mx-3">
                                             <h1 className='text-md font-medium text-black'>{el.title.slice(0,35)}...</h1>
                                             <p className="text-sm forn-light break-all  text-gray-700">{el?.description?.slice(0, 40)}...</p>

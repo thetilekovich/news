@@ -6,7 +6,7 @@ const VideoNews = () => {
   return (
     <div className="relative">
         <MainNewsSlider/>
-        <div className="absolute top-48 w-full bg-black" style={{height: '500px'}}></div>
+        <div className="absolute top-48 w-full " style={{height: '500px', background: '#010b1c'}}></div>
         <VideoNewsSection/>
     </div>
   )

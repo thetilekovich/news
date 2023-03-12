@@ -34,7 +34,7 @@ const News = () => {
             <TrendingNews/>
             <UnderSocialMedia/>
             <VideoNews/>
-            {/* <LastSection/> */}
+            <LastSection/>
         </div>
     )
 }

@@ -17,7 +17,7 @@ const params = {
     slidesPerGroup: 1,
     direction: "vertical" as "vertical",
     flexDirection: 'row' as 'row',
-    height: 50,
+    height: 60,
     freeMode: true,
     loop: true,
     pagination: { clickable: true },
@@ -58,7 +58,7 @@ const VideoNewsSection = () => {
                             >
                                 {
                                     news.map((el, idx) => (
-                                        idx > 10 ? 
+                                        idx > 60 ? 
                                         <SwiperSlide key={el.id} >
                                             <div className=' w-full'>
                                                 <img src={el.urlToImage} style={{
@@ -84,12 +84,17 @@ const VideoNewsSection = () => {
                                 >
                                     {
                                         news.map((el,idx) => (
-                                            idx > 10 ? 
+                                            idx > 60 ? 
                                             <SwiperSlide key={el.id} >
                                                 <div className='flex'>
-                                                    <img src={el.urlToImage} alt="" width={80} height={60} />
+                                                    <img src={el.urlToImage} alt="" style={{
+                                                        width: '100px',
+                                                        minWidth: '90px',
+                                                        maxHeight: '70px',
+                                                        minHeight: '60px'
+                                                    }} />
                                                     <div className="mx-3">
-                                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0, 35)}...</h1>
+                                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0, 25)}...</h1>
                                                         <p className="text-sm forn-light break-all  text-gray-700">{el?.description?.slice(0, 50)}...</p>
                                                     </div>
                                                 </div>

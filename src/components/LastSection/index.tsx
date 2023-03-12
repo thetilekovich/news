@@ -5,7 +5,7 @@ import ArrowRight from '../../../public/ArrowRight';
 import EntertaimentNews from '../EntertaimentNews'
 
 import EmailSubscribe from '../EmailSubscribe';
-import MostShare from '../MostShare';
+import MostShare from '../Sliders/MostShare';
 
 interface IDataNews {
     id: number,

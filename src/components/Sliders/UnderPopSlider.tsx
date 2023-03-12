@@ -27,8 +27,8 @@ const UnderPopSlider = () => {
     }
 
     const params = {
-        spaceBetween: 2,
-        slidesPerView: 6.4,
+        spaceBetween: 5,
+        slidesPerView: 6.3,
         loop: true,
         autoHeight: true,
         centeredSlides: true,
@@ -52,7 +52,10 @@ const UnderPopSlider = () => {
                     {news.map((el,idx) => (
                         idx > 20 && idx < 60 ?
                         <SwiperSlide key={el.id} >
-                            <img src={el.urlToImage} alt='d' width={'100%'} height={84} />
+                            <img src={el.urlToImage} alt='' style={{
+                                width: '120px',
+                                height: '100%',
+                            }}  />
                         </SwiperSlide> : ""))}
                 </Swiper>
             <button
