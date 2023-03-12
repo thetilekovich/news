@@ -1,25 +1,19 @@
 
 import { INewState } from '@/types/news';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-
-export const getNews = createAsyncThunk('news/getNews', async (thunkApi) => {
-    try {
-        const res = await axios('/api/news')
-        const data = await res.data
-        return data;
-    } catch (error) {
-        return (error as Error).message
-    }
-})
+import { createSlice } from '@reduxjs/toolkit';
+import {getNews} from './actions'
 
 
 const initialState: INewState = {
     news: [],
+    popularity: [],
+    tech: [],
+    sport: [],
+    science: [],
+    trending: [],
     isLoading: false,
     error: false
-} as INewState
+}
 
 
 const newsSlice = createSlice({
@@ -28,7 +22,7 @@ const newsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getNews.fulfilled, (state, action) => {
-            state.news.push(...action.payload)
+            state.news = action.payload
             state.isLoading = false
         })
         builder.addCase(getNews.pending, (state) => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from '../Image';
+import Image from 'next/image';
 import ToLeft from '../Arrows/ToLeft';
 import ToRight from '../Arrows/ToRight';
 import Container from '../Container';
@@ -20,7 +20,9 @@ const params = {
     spaceBetween: 10,
     slidesPerView: 3,
     loop: true,
+    autoHeight: true,
     pagination: { clickable: true },
+    centeredSlides: true,
     navigation: {
         nextEl: '.first-btn-next',
         prevEl: '.first-btn-prev',
@@ -37,35 +39,34 @@ const params = {
 const FirstSlider = () => {
     const { news } = useAppSelector(s => s.news)
     // SwiperCore.use([Autoplay]);
-
     return (
         <Container>
-            <div className='mb-8 flex items-center h-20'>
+            <div className='mb-8 flex items-center justify-between h-20'>
                 <button
-                    className='first-btn-prev h-full w-80'>
-                    <ToLeft size='py-7' />
+                    className='first-btn-prev h-full'>
+                    <ToLeft width={20} height={'100%'}/>
                 </button>
-                <Swiper
-                    modules={[Navigation, Scrollbar, A11y]}
-                    {...params}
-                >
-                    {
-                        news.map(el => (
-                            <SwiperSlide key={el.id} >
-                                <div className='flex'>
-                                    <Image alt="d" width={100} height={80} />
-                                    <div className="mx-3">
-                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0,35)}...</h1>
-                                        <p className="text-sm forn-light break-all  text-gray-700">{el?.body?.slice(0, 50)}...</p>
+                    <Swiper
+                        modules={[Navigation, Scrollbar, A11y]}
+                        {...params}
+                    >
+                        {
+                            news.map(el => (
+                                <SwiperSlide key={el.title} >
+                                    <div className='flex'>
+                                        <img src={el.urlToImage} width={140}  height={70} alt=''/>
+                                        <div className="mx-3">
+                                            <h1 className='text-md font-medium text-black'>{el.title.slice(0,35)}...</h1>
+                                            <p className="text-sm forn-light break-all  text-gray-700">{el?.description?.slice(0, 40)}...</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
                 <button
-                    className='first-btn-next h-full w-80'>
-                    <ToRight size='py-7' />
+                    className='first-btn-next h-full'>
+                    <ToRight width={20} height={'100%'} />
                 </button>
             </div>
         </Container >

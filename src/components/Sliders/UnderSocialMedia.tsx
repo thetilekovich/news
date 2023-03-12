@@ -38,31 +38,35 @@ const UnderSocialMedia = () => {
     // SwiperCore.use([Autoplay]);
 
     return (
-        // <Container>
+        <Container>
             <div className='items-center mb-24'>
-                <Container>
-                    <SectionHeader namePrev="undersocial-btn-prev" nameNext="undersocial-btn-next"/>    
-                </Container> 
+                <SectionHeader namePrev="undersocial-btn-prev" nameNext="undersocial-btn-next" />
                 <Swiper
                     modules={[Navigation, Scrollbar, A11y]}
                     {...params}
                 >
                     {
-                        news.map(el => (
+                        news.map((el,idx) => (
+                            idx > 50 && idx <= 60 ?
                             <SwiperSlide key={el.id} >
                                 <div className='flex mt-5'>
-                                    <Image alt="d" width={80} height={60} />
+                                    <img alt="" src={el.urlToImage} style={{
+                                        width:'120px',
+                                        maxHeight: '80px',
+                                        minWidth: '110px',
+                                        minHeight: '70px',
+                                        objectFit: 'scale-down'
+                                    }}/>
                                     <div className="mx-3">
-                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0,35)}...</h1>
-                                        <p className="text-sm forn-light break-all  text-gray-700">{el?.body?.slice(0, 50)}...</p>
+                                        <h1 className='text-md font-medium text-black'>{el.title.slice(0, 35)}...</h1>
                                     </div>
                                 </div>
-                            </SwiperSlide>
+                            </SwiperSlide> : ""
                         ))
                     }
                 </Swiper>
             </div>
-        // </Container >
+        </Container >
     );
 }
 

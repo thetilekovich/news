@@ -29,18 +29,19 @@ const MainNewsSlider = () => {
     return (
         <div className="px-5">
             <Container>
-            <SectionHeader title='' nameNext='m-btn-next' namePrev="m-btn-prev" />
+                <SectionHeader title='' nameNext='m-btn-next' namePrev="m-btn-prev" />
             </Container>
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             onSwiper={(swiper => console.log(swiper))} 
              {...params}>
-                {news.map(el => (
+                {news.map((el,idx) => (
+                    idx > 23 && idx <=34  ?
                     <SwiperSlide key={el.id} >
                         <div>
-                            <BigNews size="middle" key={el.id} title={el.title} body={el.body} date={el.date} category={el.category} />
+                            <BigNews img={el.urlToImage} size="middle" key={el.id} title={el.title} description={el.description} publishedAt={el.publishedAt} category={el.category} />
                         </div>
-                    </SwiperSlide>))}
+                    </SwiperSlide> : ""))}
             </Swiper>
         </div>
     )

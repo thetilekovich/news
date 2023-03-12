@@ -83,9 +83,9 @@ const UnderTrendingNews = () => {
     const { news } = useAppSelector(s => s.news)
     return (
         <div className='flex justify-between mb-8'>
-            <div className='grid grid-cols-2 grid-rows-3 gap-5'>
+            <div className='grid grid-cols-2 grid-rows-3 items-end gap-5'>
                 {news.map((el, idx) => (
-                    idx < 6 ?
+                    idx > 55 && idx <= 61 ?
                         <div key={el.id} style={{
                             width: '350px',
                         }}>

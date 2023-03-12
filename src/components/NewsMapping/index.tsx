@@ -14,11 +14,13 @@ const NewsMapping = ({el, size = 'md'} : {el: INew, size?: string}) => {
     <Link href=''className="w-full h-auto text-black flex my-3 border-news-mapped items-center content-center"
     onMouseDown={handleHoverScale}
     >
-        <Image 
-          alt='i'
+        <img
+          src={el.urlToImage}
+          alt=''
+          style={{minHeight: '70px', minWidth: '110px', maxWidth: '75px', maxHeight: '115px'}}
          width={110} height={70}/>
         <div className="ml-6 flex flex-col justify-between">
-            <h3 className=" text-xs text-gray-500 mb-2"><span className="uppercase font-md text-blue-500">{el.category}</span> / &nbsp; &nbsp; {el.date}</h3>
+            <h3 className=" text-xs text-gray-500 mb-2"><span className="uppercase font-md text-blue-500">{el.category || "Sport"}</span> / &nbsp; &nbsp; {el.publishedAt}</h3>
             <h1 className={`text-md font-bold`}>{el.title.slice(0,50)}...</h1>
         </div>
     </Link>

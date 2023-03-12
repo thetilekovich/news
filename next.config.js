@@ -8,9 +8,9 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'image-component.nextjs.gallery',
+        hostname: 'media.wired.com',
         port: '',
-        pathname: '/placeholder/',
+        pathname: '/photos',
       },
     ],
   },

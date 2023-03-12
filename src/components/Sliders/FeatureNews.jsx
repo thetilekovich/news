@@ -23,28 +23,33 @@ const FeatureNews = () => {
         navigation: {
             nextEl: '.f-btn-next',
             prevEl: '.f-btn-prev',
-            }
+        }
     }
 
     return (
         <Container>
             <div className='mb-24'>
                 <div className="mb-8 ">
-                    <SectionHeader title='Feature News' nameNext='f-btn-next' namePrev='f-btn-prev'  />
+                    <SectionHeader title='Feature News' nameNext='f-btn-next' namePrev='f-btn-prev' />
                 </div>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     {...params}>
-                    {news.map(el => (
+                    {news.map((el,idx) => (
+                        idx > 30 ? 
                         <SwiperSlide key={el.id} >
-                            <div className='border-2 mx-2 flex items-end py-5 px-6' style={{
-                                backgroundImage: 'https://dummyimage.com/250x280/ff00ff/00ff2f.png',
+                            <div className='mx-2 flex items-end py-5 0' style={{
+                                backgroundImage: `url('${el.urlToImage}')`,
                                 height: '280px',
-                                width: '250px'
+                                width: '250px',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'auto 100%',
+                                backgroundPosition: 'center',
+                                backgroundOrigin: 'content-box'
                             }}>
-                                <NewsTextInfo size="smaller" color="black" title={el.title} category={el.category} date={el.date} />
+                                <NewsTextInfo size="smaller" bgColor="bg-gray-300 bg-opacity-50" color="text-black" title={el.title} category={el.category} publishedAt={el.publishedAt} />
                             </div>
-                        </SwiperSlide>))}
+                        </SwiperSlide> : ""))}
                 </Swiper>
             </div>
         </Container >

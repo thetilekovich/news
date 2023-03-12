@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Container from '../Container/index';
 import { useAppSelector } from '../../slices/hooks';
 import NewsMapping from '../NewsMapping'
-import { INew } from '../../types/news'
 import { BigNews } from '../BigNews'
 import UnderPopSlider from '../Sliders/UnderPopSlider'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,14 +12,6 @@ const PopNews = () => {
     const { news } = useAppSelector(s => s.news)
     const [active, setActive] = useState('POPULAR')
 
-    let pop = { ...news[0] };
-
-
-    for (let i = 1; i < news.length; i++) {
-        if (news[i].popularity > pop.popularity) {
-            pop = news[i]
-        }
-    }
     const params = {
         spaceBetween: 1,
         slidesPerView: 1,
@@ -31,7 +22,7 @@ const PopNews = () => {
             }
     }
 
-    let popBody = pop.body?.slice(0, 300)
+
     return (
         <Container>
             <div className="flex text-white">
@@ -39,12 +30,13 @@ const PopNews = () => {
                 <Swiper
                     modules={[Navigation, Scrollbar, A11y]}
                     {...params}>
-                    {news.map(el => (
+                    {news.map((el,idx) => (
+                        idx > 20 && idx < 60 ?
                         <SwiperSlide key={el.id} >
-                            <BigNews title={pop.title} body={popBody} category={pop.category} date={pop.date} />
-                        </SwiperSlide>))}
+                            <BigNews title={el.title} description={el.description} category={el?.category} img={el.urlToImage} publishedAt={el.publishedAt} />
+                        </SwiperSlide> : ""))}
                 </Swiper>
-                    <UnderPopSlider />
+                <UnderPopSlider />
                 </div>
                 <div className="w-4/12 p-4">
                     <div className='flex justify-between mb-7'>
@@ -61,11 +53,28 @@ const PopNews = () => {
                     <div>
                         <div>
                             {
-                                news.filter(el => el.category.toUpperCase() == active).map((el: INew, idx: number) => (
+                                // news.filter(el => el.category.toUpperCase() == active).map((el: INew, idx: number) => (
+                                active === 'POPULAR' ?    
+                                news.map((el, idx) => (
                                     idx < 6 ?
                                         <NewsMapping key={el.id} el={el} />
                                         : '')
                                 )
+                                :
+                                active === 'TECH' ?    
+                                news.map((el, idx) => (
+                                    idx >= 6 && idx < 12 ?
+                                        <NewsMapping key={el.id} el={el} />
+                                        : '')
+                                )
+                                :
+                                news.map((el, idx) => (
+                                    idx >= 12 && idx < 18 ?
+                                        <NewsMapping key={el.id} el={el} />
+                                        : '')
+                                )
+                                
+
                             }
                         </div>
                     </div>

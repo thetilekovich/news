@@ -11,36 +11,22 @@ interface SectionHeaderProps {
 
 const SectionHeader: FC<SectionHeaderProps> = ({ title = '', nameNext, namePrev }) => {
     return (
-        <>
-            {
-                title == '' ?
-                    <div className="flex justify-end">
-                        <button
-                            className={`${namePrev} slider-btn mx-3 h-full w-7`}>
-                            <ToLeft size='py-1 px-2' />
-                        </button>
-                        <button
-                            className={`${nameNext} slider-btn  mx-3 h-full w-7`}>
-                            <ToRight size='py-1 px-2'/>
-                        </button>
-                    </div>
-                    :
-                    <div className="flex justify-between items-center ">
-                        <SectionTitle title={title} color="black" />
-                        <div>
-                            <button
-                                className={`${namePrev} slider-btn max-w-min slider-btn mx-3`}>
-                                <ToLeft size='py-2 px-2' />
-                            </button>
-                            <button
-                                className={`${nameNext} slider-btn max-w-min slider-btn mx-3 `}>
-                                <ToRight size='py-2 px-2'/>
-                            </button>
-                        </div>
-                    </div>
-            }
 
-        </>
+        <div className={`flex ${title === '' ? 'justify-end' : 'justify-between'} items-center `}>
+            {
+                title === '' ? '' : <SectionTitle title={title} color="black" />
+            }
+            <div>
+                <button
+                    className={`${namePrev} slider-btn max-w-min slider-btn mx-3`}>
+                    <ToLeft width={37} height={'100%'} />
+                </button>
+                <button
+                    className={`${nameNext} slider-btn max-w-min slider-btn mx-3 `}>
+                    <ToRight width={37} height={'100%'} />
+                </button>
+            </div>
+        </div>
     )
 }
 

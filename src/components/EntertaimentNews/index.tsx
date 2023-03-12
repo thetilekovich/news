@@ -31,8 +31,8 @@ const EntertaimentNews = () => {
                             <NewsTextInfo color="text-black" key={el.id} {...el} catBlue size='middle'/>
                             </div>
                             <button 
-                            className="py-2 px-4 duration-500 text-black rounded-sm easy-in-out font-bold my-6 slider-btn hover:bg-blue-500 hover:border-none hover:text-white">
-                                READ MORE
+                            className="border border-black border-solid py-3 text-sm px-5 duration-500 text-gray-700 rounded-sm easy-in-out font-medium my-6 hover:bg-blue-500 hover:border-none hover:text-white">
+                                Read more
                                 </button>
                         </div>
                         : ''

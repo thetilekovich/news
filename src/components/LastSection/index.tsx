@@ -4,6 +4,8 @@ import {useState, ChangeEvent} from 'react'
 import ArrowRight from '../../../public/ArrowRight';
 import EntertaimentNews from '../EntertaimentNews'
 
+import EmailSubscribe from '../EmailSubscribe';
+import MostShare from '../MostShare';
 
 interface IDataNews {
     id: number,
@@ -55,8 +57,10 @@ const newsData: IDataNews[] = [
 
 
 
+
 const LastSection = () => {
     const [emailValue, setEmailValue] = useState('')
+
 
     const handleSubmit = () => {
 
@@ -66,13 +70,15 @@ const LastSection = () => {
     }
 
 
+
+
     return (
         <Container>
 
             <div className="flex mb-16 justify-between">
                 <EntertaimentNews />
-                <div className='px-10 py-24 w-4/12'>
-                    <div className="mb-12">
+                <div className='px-5 py-24 w-4/12'>
+                    <div className="news-categories mb-12">
                     {
                         newsData.map(el => (
                             <Link key={el.id} href={el.url} className=''>
@@ -84,23 +90,11 @@ const LastSection = () => {
                         ))
                     }
                     </div>
-                    <div className="bg-white px-3 py-5 rounded-md">
-                        <h1 className="text-2xl font-bold">News Letter</h1>
-                        <p className="italic text-gray-600">Your email address will not be this published. Required fields are News Today.</p>
-                        <div className='flex items-center'>
-                            <input
-                            onChange={handleChange}
-                            placeholder="Your email address"
-                            value={emailValue}
-                            className="border-black border-2 border-solid py-1 px-2 w-9/12 border-r-0 rounded-r-none rounded-md text-black"
-                            type="email" />
-                            <button
-                            className="border-black border-2 border-solid rounded-md rounded-l-none my-3 py-1 px-2 "
-                            onClick={handleSubmit}
-                            >Submit</button>
-                        </div>
-                            <p className="italic text-gray-500">We hate spam as much as you do</p>
+                    <MostShare/>
+                    <div>
+
                     </div>
+                    <EmailSubscribe emailValue={emailValue} handleChange={handleChange} handleSubmit={handleSubmit}/>
                 </div>
             </div>
         </Container>

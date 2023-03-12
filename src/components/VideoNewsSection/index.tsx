@@ -13,13 +13,13 @@ import NewsTextInfo from '../NewsTextInfo/index';
 
 const params = {
     spaceBetween: 20,
-    slidesPerView: 6,
-    slidesPerGroup: 5,
-    freeMode: true,
-    loop: true,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
     direction: "vertical" as "vertical",
     flexDirection: 'row' as 'row',
-    autoHeight: true,
+    height: 50,
+    freeMode: true,
+    loop: true,
     pagination: { clickable: true },
     navigation: {
         nextEl: '.popular-post-btn-next',
@@ -57,37 +57,43 @@ const VideoNewsSection = () => {
                                 {...paramsTwo}
                             >
                                 {
-                                    news.map(el => (
+                                    news.map((el, idx) => (
+                                        idx > 10 ? 
                                         <SwiperSlide key={el.id} >
                                             <div className=' w-full'>
-                                                <Image width={'80%'} height={400} alt="a" />
+                                                <img src={el.urlToImage} style={{
+                                                    width: '100%', 
+                                                    height: "400px",
+                                                    backgroundSize: 'cover',
+                                                }} alt="" />
                                                 <div className='py-6 px-8 bg-gray-200'>
-                                                    <NewsTextInfo color="text-black" catBlue size="middle" title={el.title} body={el.body.slice(0, 160)} category={el.category} date={el.date} />
+                                                    <NewsTextInfo color="text-black" catBlue size="middle" title={el.title} description={el.description.slice(0, 160)} category={el.category} publishedAt={el.publishedAt} />
                                                 </div>
                                             </div>
-                                        </SwiperSlide>
+                                        </SwiperSlide> : ''
                                     ))
                                 }
                             </Swiper>
                         </div>
                         <div className="w-4/12 p-2">
                             <SectionHeader title="Popular Posts" nameNext="popular-post-btn-next" namePrev="popular-post-btn-prev" />
-                            <div className="mt-5">
+                            <div className="mt-5 h-96 overflow-scroll">
                                 <Swiper
                                     modules={[Navigation, Scrollbar, A11y]}
                                     {...params}
                                 >
                                     {
-                                        news.map(el => (
+                                        news.map((el,idx) => (
+                                            idx > 10 ? 
                                             <SwiperSlide key={el.id} >
                                                 <div className='flex'>
-                                                    <Image alt="d" width={80} height={60} />
+                                                    <img src={el.urlToImage} alt="" width={80} height={60} />
                                                     <div className="mx-3">
                                                         <h1 className='text-md font-medium text-black'>{el.title.slice(0, 35)}...</h1>
-                                                        <p className="text-sm forn-light break-all  text-gray-700">{el?.body?.slice(0, 50)}...</p>
+                                                        <p className="text-sm forn-light break-all  text-gray-700">{el?.description?.slice(0, 50)}...</p>
                                                     </div>
                                                 </div>
-                                            </SwiperSlide>
+                                            </SwiperSlide> : ""
                                         ))
                                     }
                                 </Swiper>

@@ -1,4 +1,4 @@
-import { getNews } from "@/slices/newsSlice"
+import { getNews } from "@/slices/actions"
 import { RootState } from "@/store";
 import { useEffect, useRef } from "react";
 import { useSelector } from 'react-redux';
@@ -7,7 +7,6 @@ import FirstSlider from "@/components/Sliders/FirstSlider";
 import PopNews from "@/components/PopNews";
 import FeatureNews from '../../components/Sliders/FeatureNews.jsx';
 import TrendingNews from "@/components/Sliders/TrendingNews";
-import MainNewsSlider from "@/components/Sliders/MainNewsSlider";
 import LastSection from '../../components/LastSection/index';
 import UnderSocialMedia from '../../components/Sliders/UnderSocialMedia'
 import VideoNews from "@/components/VideoNews/indext";
@@ -35,7 +34,7 @@ const News = () => {
             <TrendingNews/>
             <UnderSocialMedia/>
             <VideoNews/>
-            <LastSection/>
+            {/* <LastSection/> */}
         </div>
     )
 }
